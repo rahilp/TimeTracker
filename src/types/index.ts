@@ -12,9 +12,7 @@ export interface TimeEntry {
   projectName: string;
   projectColor: string;
   startTime: string;
-  endTime?: string;
   duration: number; // in seconds
-  notes?: string;
   createdAt: string;
 }
 
