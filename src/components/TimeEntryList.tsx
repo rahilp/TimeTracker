@@ -275,39 +275,54 @@ export default function TimeEntryList({
                       <ChevronUpDownIcon className="h-5 w-5" />
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="relative">
+                  <div className="flex flex-col gap-3">
+                    <div className="relative w-full">
                       <input
                         type="date"
                         value={newEntry.date}
                         onChange={(e) => setNewEntry(prev => ({ ...prev, date: e.target.value }))}
-                        className="w-full pl-8 pr-2 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
+                        className="w-full pl-8 pr-2 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900 appearance-none"
+                        style={{
+                          colorScheme: 'light',
+                          WebkitAppearance: 'none',
+                          MozAppearance: 'none'
+                        }}
                       />
                       <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
                         <CalendarIcon className="h-4 w-4" />
                       </div>
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-2">
+                    <div className="flex gap-2 items-center">
                       <div className="relative flex-1">
                         <input
                           type="time"
                           value={newEntry.startTime}
                           onChange={(e) => setNewEntry(prev => ({ ...prev, startTime: e.target.value }))}
-                          className="w-full pl-8 pr-2 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
+                          className="w-full pl-8 pr-2 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900 appearance-none"
+                          style={{
+                            colorScheme: 'light',
+                            WebkitAppearance: 'none',
+                            MozAppearance: 'none'
+                          }}
                         />
                         <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
                           <ClockIcon className="h-4 w-4" />
                         </div>
                       </div>
-                      <div className="flex items-center justify-center w-4">
-                        <div className="text-gray-400">to</div>
+                      <div className="flex items-center justify-center">
+                        <div className="text-gray-400 text-sm">to</div>
                       </div>
                       <div className="relative flex-1">
                         <input
                           type="time"
                           value={newEntry.endTime}
                           onChange={(e) => setNewEntry(prev => ({ ...prev, endTime: e.target.value }))}
-                          className="w-full pl-8 pr-2 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
+                          className="w-full pl-8 pr-2 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900 appearance-none"
+                          style={{
+                            colorScheme: 'light',
+                            WebkitAppearance: 'none',
+                            MozAppearance: 'none'
+                          }}
                         />
                         <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
                           <ClockIcon className="h-4 w-4" />
