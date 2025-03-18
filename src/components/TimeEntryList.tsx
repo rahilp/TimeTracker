@@ -244,8 +244,8 @@ export default function TimeEntryList({
               <div className={`transform transition-all duration-300 ${
                 entryMethod === 'manual' ? 'translate-x-0 opacity-100 relative' : 'translate-x-full opacity-0 absolute'
               } inset-0`}>
-                <div className="flex flex-col lg:flex-row gap-3">
-                  <div className="relative w-full lg:w-[45%]">
+                <div className="flex flex-col gap-3">
+                  <div className="relative w-full">
                     <select
                       value={newEntry.projectId}
                       onChange={(e) => setNewEntry(prev => ({ ...prev, projectId: e.target.value }))}
@@ -275,8 +275,8 @@ export default function TimeEntryList({
                       <ChevronUpDownIcon className="h-5 w-5" />
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 w-full lg:w-[55%]">
-                    <div className="relative w-[25%]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="relative">
                       <input
                         type="date"
                         value={newEntry.date}
@@ -287,42 +287,45 @@ export default function TimeEntryList({
                         <CalendarIcon className="h-4 w-4" />
                       </div>
                     </div>
-                    <div className="relative w-[50%]">
-                      <div className="flex">
-                        <div className="relative flex-1">
-                          <input
-                            type="time"
-                            value={newEntry.startTime}
-                            onChange={(e) => setNewEntry(prev => ({ ...prev, startTime: e.target.value }))}
-                            className="w-full pl-8 pr-2 py-1.5 bg-white border border-gray-200 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900 border-r-0"
-                          />
-                          <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
-                            <ClockIcon className="h-4 w-4" />
-                          </div>
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <div className="relative flex-1">
+                        <input
+                          type="time"
+                          value={newEntry.startTime}
+                          onChange={(e) => setNewEntry(prev => ({ ...prev, startTime: e.target.value }))}
+                          className="w-full pl-8 pr-2 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
+                        />
+                        <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                          <ClockIcon className="h-4 w-4" />
                         </div>
-                        <div className="flex items-center px-2 bg-white border-t border-b border-gray-200">
-                          <div className="text-gray-400">-</div>
-                        </div>
+                      </div>
+                      <div className="flex items-center justify-center w-4">
+                        <div className="text-gray-400">to</div>
+                      </div>
+                      <div className="relative flex-1">
                         <input
                           type="time"
                           value={newEntry.endTime}
                           onChange={(e) => setNewEntry(prev => ({ ...prev, endTime: e.target.value }))}
-                          className="flex-1 pl-2 pr-2 py-1.5 bg-white border border-gray-200 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900 border-l-0"
+                          className="w-full pl-8 pr-2 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
                         />
+                        <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                          <ClockIcon className="h-4 w-4" />
+                        </div>
                       </div>
                     </div>
-                    <button
-                      onClick={handleAddEntry}
-                      disabled={!newEntry.projectId || !newEntry.startTime || !newEntry.endTime}
-                      className={`w-[25%] px-4 py-1.5 rounded-lg transition-colors text-sm ${
-                        newEntry.projectId && newEntry.startTime && newEntry.endTime
-                          ? 'bg-[#00283c] text-white hover:bg-blue-600'
-                          : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      }`}
-                    >
-                      Add Entry
-                    </button>
                   </div>
+                  <button
+                    onClick={handleAddEntry}
+                    disabled={!newEntry.projectId || !newEntry.startTime || !newEntry.endTime}
+                    className={`w-full px-4 py-1.5 rounded-lg transition-colors text-sm ${
+                      newEntry.projectId && newEntry.startTime && newEntry.endTime
+                        ? 'bg-[#00283c] text-white hover:bg-blue-600'
+                        : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                    }`}
+                  >
+                    Add Entry
+                  </button>
                 </div>
               </div>
             </div>

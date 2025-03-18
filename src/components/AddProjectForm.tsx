@@ -27,13 +27,18 @@ export default function AddProjectForm({ onSubmit }: AddProjectFormProps) {
         value={newProjectName}
         onChange={(e) => setNewProjectName(e.target.value)}
         placeholder="Enter project name"
-        className="flex-1 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        className="flex-1 pl-3 pr-3 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
       />
       <button
         type="submit"
-        className="inline-flex items-center gap-2 px-4 py-2 bg-[#00283c] text-white rounded-lg hover:bg-blue-600 transition-colors"
+        disabled={!newProjectName.trim()}
+        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors text-sm ${
+          newProjectName.trim()
+            ? 'bg-[#00283c] text-white hover:bg-blue-600'
+            : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+        }`}
       >
-        <PlusIcon className="h-5 w-5" />
+        <PlusIcon className="h-4 w-4" />
         Add Project
       </button>
     </form>

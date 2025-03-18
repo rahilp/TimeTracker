@@ -121,18 +121,20 @@ export default function Home() {
       <div className="container mx-auto py-6 px-4 max-w-7xl">
         {activeTab === 'projects' ? (
           <div className="bg-white rounded-lg shadow-sm border p-6">
-            <div className="mb-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Add New Project</h2>
-              <AddProjectForm onSubmit={addProject} />
-            </div>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Your Projects</h2>
-              <ProjectList
-                projects={projects}
-                onDelete={deleteProject}
-                onUpdate={updateProject}
-                onDeleteWithEntries={deleteProjectWithEntries}
-              />
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-base font-semibold text-gray-900 mb-3">Add New Project</h2>
+                <AddProjectForm onSubmit={addProject} />
+              </div>
+              <div>
+                <h2 className="text-base font-semibold text-gray-900 mb-3">Your Projects</h2>
+                <ProjectList
+                  projects={projects}
+                  onDelete={deleteProject}
+                  onUpdate={updateProject}
+                  onDeleteWithEntries={deleteProjectWithEntries}
+                />
+              </div>
             </div>
           </div>
         ) : activeTab === 'reports' ? (
