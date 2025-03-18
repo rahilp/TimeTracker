@@ -57,12 +57,12 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 overflow-x-hidden">
       {/* Header */}
       <div className="bg-[#00283c] border-b border-[#003351]">
-        <div className="container mx-auto px-4 py-4 pb-0">
+        <div className="container mx-auto px-4 py-4 pb-0 max-w-7xl">
           <div className="flex justify-between items-center" id="logo">
-            <img src="https://cms.jibecdn.com/prod/insightglobal/assets/HEADER-NAV_LOGO-en-us-1689829053363.png" alt="logo" width={150} />
+            <img src="https://cms.jibecdn.com/prod/insightglobal/assets/HEADER-NAV_LOGO-en-us-1689829053363.png" alt="logo" className="w-[150px] h-auto" />
             <button
               onClick={() => setShowExportModal(true)}
               className="inline-flex items-center gap-1.5 bg-white/10 text-white px-3 py-1.5 rounded-lg hover:bg-white/20 transition-colors text-sm"
@@ -72,7 +72,7 @@ export default function Home() {
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex space-x-1 mt-6">
+          <div className="flex space-x-1 mt-6 overflow-x-auto">
             <button
               onClick={() => setActiveTab('entries')}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-t-lg transition-colors ${
@@ -118,7 +118,7 @@ export default function Home() {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto py-6">
+      <div className="container mx-auto py-6 px-4 max-w-7xl">
         {activeTab === 'projects' ? (
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <div className="mb-6">

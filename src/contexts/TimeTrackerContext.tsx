@@ -97,7 +97,7 @@ const formatTimeEntryForWebhook = (entry: TimeEntry, project: Project) => {
     endTime: format(endTime, 'HH:mm:ss'),
     date: format(startTime, 'yyyy-MM-dd'),
     duration: entry.duration,
-    created: new Date().toISOString()
+    createdAt: entry.createdAt
   };
 
   console.log('Formatted webhook data:', formattedData); // Debug log
@@ -161,15 +161,15 @@ export function TimeTrackerProvider({ children }: { children: React.ReactNode })
     const project = projects.find(p => p.id === entry.projectId);
     if (!project) return;
 
-    const newEntry = {
+    const newEntry: TimeEntry = {
       id: uuidv4(),
       projectId: entry.projectId,
       projectName: project.name,
       projectColor: project.color,
       startTime: entry.startTime,
       duration: entry.duration,
-      createdAt: new Date().toISOString()
-    } as TimeEntry;
+      createdAt: new Date().toISOString(),
+    };
     setTimeEntries(prev => [...prev, newEntry]);
 
     // Send webhook for new entry
@@ -200,7 +200,7 @@ export function TimeTrackerProvider({ children }: { children: React.ReactNode })
     const project = projects.find(p => p.id === projectId);
     if (!project) return;
 
-    const newEntry = {
+    const newEntry: TimeEntry = {
       id: uuidv4(),
       projectId,
       projectName: project.name,
@@ -208,7 +208,7 @@ export function TimeTrackerProvider({ children }: { children: React.ReactNode })
       startTime: new Date().toISOString(),
       duration: 0,
       createdAt: new Date().toISOString(),
-    } as TimeEntry;
+    };
     setActiveEntry(newEntry);
   };
 
