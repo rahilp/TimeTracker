@@ -1,22 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TimeTracker
+
+A modern web application for tracking time spent on work projects. Built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- 🕒 Real-time time tracking
+- 📱 Responsive design for desktop and mobile
+- 📊 Project management
+- 📁 Project categorization
+- 📈 Weekly time export
+- 🎨 Modern and sleek UI
+
+## Architecture
+
+The application is built using:
+
+- **Frontend Framework**: Next.js with TypeScript
+- **Styling**: Tailwind CSS for modern, responsive design
+- **State Management**: React Context API
+- **Data Storage**: Local storage for offline capability
+- **Data Export**: CSV format for weekly reports
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Structure
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+src/
+├── app/              # Next.js app router
+├── components/       # Reusable UI components
+├── contexts/        # React Context providers
+├── types/           # TypeScript type definitions
+└── utils/           # Helper functions
+```
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
