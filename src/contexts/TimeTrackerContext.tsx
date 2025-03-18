@@ -2,6 +2,11 @@
 
 import { createContext, useContext, useEffect, useState } from 'react';
 import { Project, TimeEntry } from '@/types';
+declare module '@/types' {
+  interface TimeEntry {
+    createdAt: string;
+  }
+}
 import { v4 as uuidv4 } from 'uuid';
 import { generateId } from '@/utils/id';
 import { format } from 'date-fns';
@@ -97,10 +102,10 @@ const formatTimeEntryForWebhook = (entry: TimeEntry, project: Project) => {
     endTime: format(endTime, 'HH:mm:ss'),
     date: format(startTime, 'yyyy-MM-dd'),
     duration: entry.duration,
-    createdAt: entry.createdAt
+    created: entry.createdAt
   };
 
-  console.log('Formatted webhook data:', formattedData); // Debug log
+  console.log('Formatted webhook data:', formattedData);
   return formattedData;
 };
 
@@ -168,7 +173,7 @@ export function TimeTrackerProvider({ children }: { children: React.ReactNode })
       projectColor: project.color,
       startTime: entry.startTime,
       duration: entry.duration,
-      createdAt: new Date().toISOString(),
+      createdAt: new Date().toISOString()
     };
     setTimeEntries(prev => [...prev, newEntry]);
 
@@ -207,7 +212,7 @@ export function TimeTrackerProvider({ children }: { children: React.ReactNode })
       projectColor: project.color,
       startTime: new Date().toISOString(),
       duration: 0,
-      createdAt: new Date().toISOString(),
+      createdAt: new Date().toISOString()
     };
     setActiveEntry(newEntry);
   };
@@ -287,4 +292,4 @@ export function useTimeTracker() {
     throw new Error('useTimeTracker must be used within a TimeTrackerProvider');
   }
   return context;
-} 
+}
