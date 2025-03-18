@@ -82,7 +82,6 @@ export default function Home() {
               }`}
             >
               <ClockIcon className="h-5 w-5" />
-              Time Entries
             </button>
             <button
               onClick={() => setActiveTab('projects')}
@@ -93,7 +92,6 @@ export default function Home() {
               }`}
             >
               <FolderIcon className="h-5 w-5" />
-              Projects
             </button>
             <button
               onClick={() => setActiveTab('reports')}
@@ -104,7 +102,6 @@ export default function Home() {
               }`}
             >
               <ChartBarIcon className="h-5 w-5" />
-              Reports
             </button>
             <button
               onClick={() => setActiveTab('settings')}
@@ -115,7 +112,6 @@ export default function Home() {
               }`}
             >
               <Cog6ToothIcon className="h-5 w-5" />
-              Settings
             </button>
           </div>
         </div>
